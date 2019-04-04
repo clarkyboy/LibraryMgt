@@ -40,8 +40,11 @@
                     <input type="password" name="password" id="" class="form-control">
                 </div>
             </div>
-            <input type="submit" value="Change Password" name="change" class="btn btn-warning mx-auto d-block">
-            <a href="../logout.php" class="btn btn-outline-danger mx-auto d-block">Logout</a>
+            <div class="text-center mx-auto d-block">
+                <input type="submit" value="Change Password" name="change" class="btn btn-warning">
+                <a href="../logout.php" class="btn btn-outline-danger">Logout</a>
+            </div>
+           
         </form>
     </div>
 </body>
