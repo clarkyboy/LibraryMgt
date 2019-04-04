@@ -24,8 +24,8 @@
     <div class="jumbotron">
         <h1>Library Management System <a href="../logout.php?page=1">Logout</a></h1>
     </div>
-    <div class="container mt-3 justify-content-center">
-        <h4 class="display-4">List of Books</h4>
+    <div class="container mt-3 p-3 justify-content-center">
+        <h4 class="display-4">List of Borrowed Books <a href="book-list.php" role="button" class="btn btn-info">View List of All Books</a></h4>
         <table class="table table-striped">
             <thead class="thead-dark">
                 <th>ISBN</th>
@@ -48,9 +48,12 @@
                                 if($values['borrow_status'] == 'P'){
                                     echo "<td> Pending </td>";
                                     echo "<td><small>You can get/return the book once the request is approved</small></td>";
+                                }else if($values['borrow_status'] == 'A'){
+                                    echo "<td> Approved <small>".$values['borrow_approval_date']."</small></td>";
+                                    echo "<td><a href='book-return.php?id=".$values['borrow_id']."&ISBN=".$values['book_ISBN']."' class='btn btn-outline-warning'><i class='fas fa-undo'></i> Return Book</a></td>";
                                 }else{
-                                    echo "<td> Approved </td>";
-                                    echo "<td><a href='book-return.php?ISBN=".$values['book_ISBN']."' class='btn btn-outline-warning'><i class='fas fa-undo'></i> Return Book</a></td>";
+                                    echo "<td> Returned <small>".$values['borrow_return_date']."</small></td>";
+                                    echo "<td><small>You successfully returned the book</small></td>";
                                 }
                         echo "</tr>";
                     }

@@ -28,7 +28,7 @@
         <p class="lead text-center">Please choose from the ffg.</p>
         <div class="row">
             <div class="col-6">
-                <a href="book-list.php" class="btn btn-primary p-5 w-100 h-100 <?php echo $disabled; ?>"><i class="fas fa-book-open p-3" style="font-size:100px;"></i> <br><p class="lead" style="font-size:20px;">Borrow Books <br> <?php echo $status; ?></p></a>
+                <a href="book-borrowed-list.php" class="btn btn-primary p-5 w-100 h-100 <?php echo $disabled; ?>"><i class="fas fa-book-open p-3" style="font-size:100px;"></i> <br><p class="lead" style="font-size:20px;">Borrow Books <br> <?php echo $status; ?></p></a>
             </div>
             <div class="col-6">
             <a href="#" class="btn btn-success p-5 w-100 h-100"><i class="fas fa-users p-3" style="font-size:100px;"></i> <br><p class="lead" style="font-size:20px;">Profile Management</p></a>

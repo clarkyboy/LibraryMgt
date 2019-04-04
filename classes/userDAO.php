@@ -29,7 +29,7 @@
                     VALUES ('$borrower_id', '$isbn', '$start', '$due', '$status')";
             $result = $this->conn->query($sql);
 
-            $sql2 = "UPDATE book SET book_borrow_status = 'B' WHERE book_ISBN = '$book_ISBN'";
+            $sql2 = "UPDATE book SET book_borrow_status = 'B' WHERE book_ISBN = '$isbn'";
             $another = $this->conn->query($sql2);
         }
         public function getBorrowedBooks($id){
@@ -40,6 +40,15 @@
                 $rows[] = $row;
             }
             return $rows;
+        }
+
+        public function returnBook($id, $isbn){
+            $date = date('Y-m-d');
+            $sql = "UPDATE borrow SET borrow_return_date = '$date', borrow_status = 'R' WHERE borrow_id = '$id'";
+            $result = $this->conn->query($sql);
+
+            $sql2 = "UPDATE book SET book_borrow_status = 'R' WHERE book_ISBN = '$isbn'";
+            $another = $this->conn->query($sql2);
         }
 
     }

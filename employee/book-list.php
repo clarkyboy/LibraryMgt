@@ -23,8 +23,8 @@
     <div class="jumbotron">
         <h1>Library Management System <a href="../logout.php?page=1">Logout</a></h1>
     </div>
-    <div class="container mt-3 justify-content-center">
-        <h4 class="display-4">List of Books</h4>
+    <div class="container mt-3 p-3 justify-content-center">
+        <h4 class="display-4">List of Books <a href="book-borrowed-list.php" role="button" class="btn btn-info">View List of Borrowed Books</a></h4>
         <table class="table table-striped">
             <thead class="thead-dark">
                 <th>ISBN</th>

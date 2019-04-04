@@ -10,7 +10,7 @@
         $status = 'P'; // Pending
 
         $userdao->borrowBook($_SESSION['id'], $isbn, $start, $due, $status);
-        header('Location: book-list.php');
+        header('Location: book-borrowed-list.php');
     }   
 ?>
 <!DOCTYPE html>
@@ -41,9 +41,9 @@
                 <label for="" class="col-sm-2 p-2">Book Author</label>
                 <input type="text" name="author" id="" class="form-control" value="<?php echo $_GET['author'];?>" readonly>
                 <label for="" class="col-sm-2 p-2">Start Date</label>
-                <input type="text" name="start" id="" class="form-control" value="<?php echo date('Y-m-d');?>">
+                <input type="date" name="start" id="" class="form-control" value="<?php echo date('Y-m-d');?>">
                 <label for="" class="col-sm-2 p-2">Due Date/Return Date</label>
-                <input type="text" name="due" id="" class="form-control" value="<?php echo date('Y-m-d');?>">
+                <input type="date" name="due" id="" class="form-control" value="<?php echo date('Y-m-d');?>">
             </div>
             <div class="text-center mx-auto-d-block">
                 <input type="submit" value="Borrow" name="borrow" class="btn btn-outline-primary">
