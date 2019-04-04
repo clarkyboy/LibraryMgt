@@ -32,6 +32,7 @@
         <a href="book-insert.php" role="button" class="btn btn-outline-primary m-3"><i class="fas fa-plus"></i> Add Book</a>
         <table class="table table-striped">
             <thead class="thead-dark">
+                <th>ISBN</th>
                 <th>Name</th>
                 <th>Author</th>
                 <th>Date Added</th>
