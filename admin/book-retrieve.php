@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once '../classes/bookDAO.php';
     $bookdao = new BookAccessObject;
     $books = $bookdao->getBooks();
@@ -25,7 +26,7 @@
 </head>
 <body>
     <div class="jumbotron">
-        <h1>Library Management System</h1>
+        <h1>Library Management System <a href="../logout.php?page=2">Logout</a></h1>
     </div>
     <div class="container mt-3 justify-content-center">
         <h4 class="display-4">List of Books</h4>
