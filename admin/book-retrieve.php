@@ -41,6 +41,7 @@
                 <th>Publisher</th>
                 <th>Edition</th>
                 <th>Genre/Type</th>
+                <th>Borrowed_Status</th>
                 <th>Status</th>
                 <th colspan="2">Actions</th>
             </thead>
@@ -57,6 +58,11 @@
                                 echo "<td>".$values['book_publisher']."</td>";
                                 echo "<td>".$values['book_edition']."</td>";
                                 echo "<td>".$values['book_type']."</td>";
+                                if($values['book_borrow_status'] == 'R'){
+                                    echo "<td> Ready for Borrowing </td>";
+                                }else{
+                                    echo "<td class='text-primary'> Borrowed</td>";
+                                }
                                 echo "<td> Usable </td>";
                                 echo "<td><a href='book-update.php?ISBN=".$values['book_ISBN']."' class='btn btn-outline-warning'><i class='fas fa-edit'></i></a></td>";
                                 echo "<td><a href='book-changestats.php?ISBN=".$values['book_ISBN']."&status=N' class='btn btn-outline-danger'><i class='fas fa-times'></i></a></td>";
@@ -71,6 +77,11 @@
                                 echo "<td>".$values['book_publisher']."</td>";
                                 echo "<td>".$values['book_edition']."</td>";
                                 echo "<td>".$values['book_type']."</td>";
+                                if($values['book_borrow_status'] == 'R'){
+                                    echo "<td> Ready for Borrowing </td>";
+                                }else{
+                                    echo "<td class='text-primary'> Borrowed</td>";
+                                }
                                 echo "<td> Slightly Usable </td>";
                                 echo "<td><a href='book-update.php?ISBN=".$values['book_ISBN']."' class='btn btn-outline-warning'><i class='fas fa-edit'></i></a></td>";
                                 echo "<td><a href='book-changestats.php?ISBN=".$values['book_ISBN']."&status=N' class='btn btn-outline-danger'><i class='fas fa-times'></i></a></td>";
@@ -85,6 +96,11 @@
                                 echo "<td>".$values['book_publisher']."</td>";
                                 echo "<td>".$values['book_edition']."</td>";
                                 echo "<td>".$values['book_type']."</td>";
+                                if($values['book_borrow_status'] == 'R'){
+                                    echo "<td> Ready for Borrowing </td>";
+                                }else{
+                                    echo "<td class='text-primary'> Borrowed</td>";
+                                }
                                 echo "<td> Not Usable </td>";
                                 echo "<td><a href='book-update.php?ISBN=".$values['book_ISBN']."' class='btn btn-outline-warning disabled'><i class='fas fa-edit'></i></a></td>";
                                 echo "<td><a href='book-changestats.php?ISBN=".$values['book_ISBN']."&status=S' class='btn btn-outline-success'><i class='fas fa-wrench'></i></a></td>";

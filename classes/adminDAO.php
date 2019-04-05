@@ -32,14 +32,20 @@
             return $rows;
         }
 
-        public function updateBorrowedBooks($isbn, $id, $status){
+        public function updateBorrowedBooks($isbn, $id, $admin, $status){
             $date = date('Y-m-d');
-            $sql = "UPDATE borrow SET borrow_approval_date = '$date', borrow_status = '$status' WHERE borrow_id = '$id'";
+            $sql = "UPDATE borrow SET admin_id='$admin', borrow_approval_date = '$date', borrow_status = '$status' WHERE borrow_id = '$id'";
             $result = $this->conn->query($sql);
 
 
             $sql2 = "UPDATE book SET book_borrow_status = '$status' WHERE book_ISBN = '$isbn'";
             $another = $this->conn->query($sql2);
+        }
+        public function getAdmin($id){
+            $sql = "SELECT * FROM `admin` WHERE admin_id = '$id'";
+            $result = $this->conn->query($sql);
+            $row = $result->fetch_assoc();
+            return $row;
         }
 
     }

@@ -38,6 +38,7 @@
                 <th>Date Borrowed</th>
                 <th>Due Date</th>
                 <th>Borrower Name</th>
+                <th>Approved By</th>
                 <th>Status</th>
                 <th colspan="2">Actions</th>
             </thead>
@@ -52,6 +53,7 @@
                             echo "<td>".date('F j, Y', strtotime($values['borrow_start_date']))."</td>";
                             echo "<td>".date('F j, Y', strtotime($values['borrow_due_date']))."</td>";
                             echo "<td>".$values['borrower_name']."</td>";
+                            echo "<td>".$bookdao->getAdmin($values['admin_id'])['admin_name']."</td>";
                             if($values['borrow_status'] == 'A'){
                                 echo "<td> Approved </td>";
                                 echo "<td><a href='borrow-changestats.php?ISBN=".$values['book_ISBN']." &borrow_id= ".$values['borrow_id']."&status=R' class='btn btn-outline-danger'><i class='fas fa-times'></i> Cancel</a></td>";
