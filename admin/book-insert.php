@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once '../classes/bookDAO.php';
     $bookdao = new BookAccessObject;
     if(isset($_POST['save'])){
@@ -35,7 +36,7 @@
 </head>
 <body>
     <div class="jumbotron">
-        <h1>Library Management System</h1>
+        <h1>Library Management System <a href="../logout.php?page=2">Logout</a> </h1>
     </div>
     <div class="container mt-3 justify-content-center p-3">
         <h4 class="display-4">Add a Book <a href="book-retrieve.php" role="button" class="btn btn-info">View List Books</a> </h4>

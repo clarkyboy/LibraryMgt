@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once '../classes/bookDAO.php';
     $bookdao = new BookAccessObject;
     $books = $bookdao->getBooks();
@@ -25,7 +26,7 @@
 </head>
 <body>
     <div class="jumbotron">
-        <h1>Library Management System</h1>
+        <h1>Library Management System <a href="../logout.php?page=2">Logout</a></h1>
     </div>
     <div class="container mt-3 justify-content-center">
         <h4 class="display-4">List of Books</h4>
@@ -40,6 +41,7 @@
                 <th>Publisher</th>
                 <th>Edition</th>
                 <th>Genre/Type</th>
+                <th>Borrowed_Status</th>
                 <th>Status</th>
                 <th colspan="2">Actions</th>
             </thead>
@@ -56,6 +58,11 @@
                                 echo "<td>".$values['book_publisher']."</td>";
                                 echo "<td>".$values['book_edition']."</td>";
                                 echo "<td>".$values['book_type']."</td>";
+                                if($values['book_borrow_status'] == 'R'){
+                                    echo "<td> Ready for Borrowing </td>";
+                                }else{
+                                    echo "<td class='text-primary'> Borrowed</td>";
+                                }
                                 echo "<td> Usable </td>";
                                 echo "<td><a href='book-update.php?ISBN=".$values['book_ISBN']."' class='btn btn-outline-warning'><i class='fas fa-edit'></i></a></td>";
                                 echo "<td><a href='book-changestats.php?ISBN=".$values['book_ISBN']."&status=N' class='btn btn-outline-danger'><i class='fas fa-times'></i></a></td>";
@@ -70,6 +77,11 @@
                                 echo "<td>".$values['book_publisher']."</td>";
                                 echo "<td>".$values['book_edition']."</td>";
                                 echo "<td>".$values['book_type']."</td>";
+                                if($values['book_borrow_status'] == 'R'){
+                                    echo "<td> Ready for Borrowing </td>";
+                                }else{
+                                    echo "<td class='text-primary'> Borrowed</td>";
+                                }
                                 echo "<td> Slightly Usable </td>";
                                 echo "<td><a href='book-update.php?ISBN=".$values['book_ISBN']."' class='btn btn-outline-warning'><i class='fas fa-edit'></i></a></td>";
                                 echo "<td><a href='book-changestats.php?ISBN=".$values['book_ISBN']."&status=N' class='btn btn-outline-danger'><i class='fas fa-times'></i></a></td>";
@@ -84,6 +96,11 @@
                                 echo "<td>".$values['book_publisher']."</td>";
                                 echo "<td>".$values['book_edition']."</td>";
                                 echo "<td>".$values['book_type']."</td>";
+                                if($values['book_borrow_status'] == 'R'){
+                                    echo "<td> Ready for Borrowing </td>";
+                                }else{
+                                    echo "<td class='text-primary'> Borrowed</td>";
+                                }
                                 echo "<td> Not Usable </td>";
                                 echo "<td><a href='book-update.php?ISBN=".$values['book_ISBN']."' class='btn btn-outline-warning disabled'><i class='fas fa-edit'></i></a></td>";
                                 echo "<td><a href='book-changestats.php?ISBN=".$values['book_ISBN']."&status=S' class='btn btn-outline-success'><i class='fas fa-wrench'></i></a></td>";

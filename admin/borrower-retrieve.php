@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once '../classes/borrowerDAO.php';
     $borrowerdao = new BorrowerAccessObject;
     $borrower = $borrowerdao->getBorrowers();
@@ -23,7 +24,7 @@
 </head>
 <body>
     <div class="jumbotron">
-        <h1>Library Management System</h1>
+        <h1>Library Management System <a href="../logout.php?page=2">Logout</a> </h1>
     </div>
     <div class="container p-3 justify-content-center">
         <h4 class="display-4">List of Borrowers</h4>

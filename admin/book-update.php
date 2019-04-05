@@ -38,7 +38,7 @@
 </head>
 <body>
     <div class="jumbotron">
-        <h1>Library Management System</h1>
+        <h1>Library Management System <a href="../logout.php?page=2">Logout</a> </h1>
     </div>
     <div class="container mt-3 justify-content-center p-3">
         <h4 class="display-4">Edit ISBN: <?php echo $isbn; ?></h4>
