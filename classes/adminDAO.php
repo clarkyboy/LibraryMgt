@@ -32,13 +32,18 @@
             return $rows;
         }
 
-        public function updateBorrowedBooks($isbn, $id, $admin, $status){
+        public function updateBorrowedBooks($isbn, $id, $admin, $status, $bookstatus){
             $date = date('Y-m-d');
-            $sql = "UPDATE borrow SET admin_id='$admin', borrow_approval_date = '$date', borrow_status = '$status' WHERE borrow_id = '$id'";
+            if($status == 'A'){
+                $sql = "UPDATE borrow SET admin_id='$admin', borrow_approval_date = '$date', borrow_status = '$status' WHERE borrow_id = '$id'";
+            }else{
+                $sql = "UPDATE borrow SET admin_id=null, borrow_approval_date = null, borrow_status = '$status' WHERE borrow_id = '$id'";
+            }
+            
             $result = $this->conn->query($sql);
 
 
-            $sql2 = "UPDATE book SET book_borrow_status = '$status' WHERE book_ISBN = '$isbn'";
+            $sql2 = "UPDATE book SET book_borrow_status = '$bookstatus' WHERE book_ISBN = '$isbn'";
             $another = $this->conn->query($sql2);
         }
         public function getAdmin($id){

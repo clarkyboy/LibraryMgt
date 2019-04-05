@@ -61,14 +61,14 @@
                             }
                             if($values['borrow_status'] == 'A'){
                                 echo "<td> Approved </td>";
-                                echo "<td><a href='borrow-changestats.php?ISBN=".$values['book_ISBN']." &borrow_id= ".$values['borrow_id']."&status=R' class='btn btn-outline-danger'><i class='fas fa-times'></i> Cancel</a></td>";
+                                echo "<td><a href='borrow-changestats.php?ISBN=".$values['book_ISBN']." &borrow_id= ".$values['borrow_id']."&status=P&bookstat=R' class='btn btn-outline-danger'><i class='fas fa-times'></i> Cancel</a></td>";
                             }elseif($values['borrow_status'] == 'R'){
                                 echo "<td> Returned </td>";
                                 echo "<td><small>Date Returned: ".date('F j, Y', strtotime($values['borrow_return_date']))."</small></td>";
                             }
                             else{
                                 echo "<td> Pending </td>";
-                                echo "<td><a href='borrow-changestats.php?ISBN=".$values['book_ISBN']." &borrow_id= ".$values['borrow_id']."&status=A' class='btn btn-outline-success'><i class='fas fa-check'></i> Approve</a></td>";
+                                echo "<td><a href='borrow-changestats.php?ISBN=".$values['book_ISBN']." &borrow_id= ".$values['borrow_id']."&status=A&bookstat=B' class='btn btn-outline-success'><i class='fas fa-check'></i> Approve</a></td>";
                             }
                             //echo "<td><a href='book-update.php?ISBN=".$values['book_ISBN']."' class='btn btn-outline-warning'><i class='fas fa-edit'></i></a></td>";
                             

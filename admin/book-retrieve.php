@@ -3,6 +3,7 @@
     require_once '../classes/bookDAO.php';
     $bookdao = new BookAccessObject;
     $books = $bookdao->getBooks();
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -48,6 +49,7 @@
             <tbody>
                 <?php
                     foreach($books as $key=>$values){
+                        $disabled = "";
                         if($values['book_status'] == 'U'){
                             echo "<tr>";
                                 echo "<td>".$values['book_ISBN']."</td>";
@@ -62,10 +64,11 @@
                                     echo "<td> Ready for Borrowing </td>";
                                 }else{
                                     echo "<td class='text-primary'> Borrowed</td>";
+                                    $disabled = "disabled";
                                 }
                                 echo "<td> Usable </td>";
-                                echo "<td><a href='book-update.php?ISBN=".$values['book_ISBN']."' class='btn btn-outline-warning'><i class='fas fa-edit'></i></a></td>";
-                                echo "<td><a href='book-changestats.php?ISBN=".$values['book_ISBN']."&status=N' class='btn btn-outline-danger'><i class='fas fa-times'></i></a></td>";
+                                echo "<td><a href='book-update.php?ISBN=".$values['book_ISBN']."' class='btn btn-outline-warning ".$disabled."'><i class='fas fa-edit'></i></a></td>";
+                                echo "<td><a href='book-changestats.php?ISBN=".$values['book_ISBN']."&status=N' class='btn btn-outline-danger ".$disabled."'><i class='fas fa-times'></i></a></td>";
                             echo "</tr>";
                         }elseif($values['book_status'] == 'S'){
                             echo "<tr>";
@@ -81,10 +84,11 @@
                                     echo "<td> Ready for Borrowing </td>";
                                 }else{
                                     echo "<td class='text-primary'> Borrowed</td>";
+                                    $disabled = "disabled";
                                 }
                                 echo "<td> Slightly Usable </td>";
-                                echo "<td><a href='book-update.php?ISBN=".$values['book_ISBN']."' class='btn btn-outline-warning'><i class='fas fa-edit'></i></a></td>";
-                                echo "<td><a href='book-changestats.php?ISBN=".$values['book_ISBN']."&status=N' class='btn btn-outline-danger'><i class='fas fa-times'></i></a></td>";
+                                echo "<td><a href='book-update.php?ISBN=".$values['book_ISBN']."' class='btn btn-outline-warning ".$disabled."'><i class='fas fa-edit'></i></a></td>";
+                                echo "<td><a href='book-changestats.php?ISBN=".$values['book_ISBN']."&status=N' class='btn btn-outline-danger ".$disabled."'><i class='fas fa-times'></i></a></td>";
                             echo "</tr>";
                         }elseif($values['book_status'] == 'N'){
                             echo "<tr class = 'trN'>";
