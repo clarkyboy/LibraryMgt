@@ -51,6 +51,13 @@
             $another = $this->conn->query($sql2);
         }
 
+        public function getAdmin($id){
+            $sql = "SELECT * FROM `admin` WHERE admin_id = '$id'";
+            $result = $this->conn->query($sql);
+            $row = $result->fetch_assoc();
+            return $row;
+        }
+
     }
 
 

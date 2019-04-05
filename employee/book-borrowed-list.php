@@ -33,6 +33,7 @@
                 <th>Author</th>
                 <th>Borrow Start Date</th>
                 <th>Borrow Return Date</th>
+                <th>Approved By</th>
                 <th>Status</th>
                 <th>Actions</th>
             </thead>
@@ -45,6 +46,11 @@
                                 echo "<td>".$values['book_author']."</td>";
                                 echo "<td>".date('F j, Y', strtotime($values['borrow_start_date']))."</td>";
                                 echo "<td>".date('F j, Y', strtotime($values['borrow_due_date']))."</td>";
+                                if($values['admin_id'] != null){
+                                    echo "<td>".$userdao->getAdmin($values['admin_id'])['admin_name']."</td>";
+                                }else{
+                                    echo "<td> Waiting... </td>";
+                                }
                                 if($values['borrow_status'] == 'P'){
                                     echo "<td> Pending </td>";
                                     echo "<td><small>You can get/return the book once the request is approved</small></td>";
